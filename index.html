@@ -30,7 +30,6 @@
   }
   .shell{max-width:850px;margin:0 auto;padding:24px 14px 70px;position:relative;z-index:1;}
 
-  /* TOP BAR */
   .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:22px;flex-wrap:wrap}
   .brand{display:flex;align-items:center;gap:12px}
   .brand-mark{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--gold),#FFD84D);
@@ -41,16 +40,15 @@
   .topbar .pill{font-size:.68rem;padding:7px 12px;border-radius:999px;background:rgba(242,183,5,.12);
     border:1px solid rgba(242,183,5,.35);color:var(--gold);font-weight:700;letter-spacing:.5px}
 
-  /* HERO */
   .hero{margin-bottom:22px;text-align:center}
   .hero h1{font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,6vw,3.2rem);
     line-height:1.05;letter-spacing:-.5px}
   .hero h1 em{font-style:normal;background:linear-gradient(120deg,var(--gold),#fff 60%,#FFD84D);
     -webkit-background-clip:text;background-clip:text;color:transparent}
   .hero p{margin-top:10px;color:#B8C2D4;font-size:.9rem;line-height:1.55;
-    max-width:600px;margin-left:auto;margin-right:auto;padding:0 6px}
+    max-width:620px;margin-left:auto;margin-right:auto;padding:0 6px}
+  .hero p b{color:var(--gold)}
 
-  /* CARDS */
   .card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
     border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:18px;
     box-shadow:0 20px 60px rgba(0,0,0,.35);backdrop-filter:blur(14px);margin-bottom:16px}
@@ -60,7 +58,6 @@
   .card h2 .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);flex-shrink:0}
   .card .hint{font-size:.76rem;color:#8A94A6;margin-bottom:18px;line-height:1.5}
 
-  /* FIELDS */
   .field{margin-bottom:16px}
   .field label{display:block;font-size:.68rem;font-weight:700;letter-spacing:1.3px;
     text-transform:uppercase;color:var(--gold);margin-bottom:7px}
@@ -72,13 +69,11 @@
   .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   @media(max-width:420px){.two{grid-template-columns:1fr}}
 
-  /* THEME PICKER */
   .theme-picker{display:flex;gap:10px;margin-bottom:8px;flex-wrap:wrap}
   .theme-btn{width:42px;height:42px;border-radius:50%;border:2px solid transparent;cursor:pointer;
     transition:.2s;position:relative;background:var(--c);flex-shrink:0}
   .theme-btn.active{transform:scale(1.12);border-color:#fff;box-shadow:0 0 15px rgba(255,255,255,.5)}
 
-  /* COURSE POOL */
   .course-pool-head{font-size:.68rem;letter-spacing:1.2px;text-transform:uppercase;
     color:#8A94A6;font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
   .course-pool-head span.count{color:var(--gold);font-weight:800}
@@ -88,12 +83,10 @@
     border-radius:14px;padding:12px;margin-bottom:10px;position:relative;
     display:flex;flex-direction:column;gap:8px;
   }
-  .course-card .row1{display:grid;grid-template-columns:1fr 2fr;gap:8px}
+  .course-card .row1{display:grid;grid-template-columns:1fr;gap:8px}
+  @media(min-width:520px){.course-card .row1{grid-template-columns:0.9fr 2.2fr}}
   .course-card .row2{display:grid;grid-template-columns:1fr;gap:8px}
-  @media(min-width:520px){
-    .course-card .row1{grid-template-columns:0.9fr 2.2fr}
-    .course-card .row2{grid-template-columns:1fr 1fr 1.1fr}
-  }
+  @media(min-width:520px){.course-card .row2{grid-template-columns:1fr 1.2fr}}
   .course-card .mini-label{font-size:.58rem;letter-spacing:1px;text-transform:uppercase;
     color:#8A94A6;font-weight:700;margin-bottom:3px}
   .course-card input{
@@ -118,21 +111,29 @@
     font-family:inherit;transition:.18s;margin-top:4px}
   .add:hover{background:rgba(242,183,5,.1)}
 
-  /* BUTTONS */
   .btn{width:100%;padding:16px;border-radius:14px;border:none;font-family:inherit;
     font-weight:800;font-size:1rem;letter-spacing:.4px;cursor:pointer;transition:.2s;
     display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px}
   .btn-primary{background:linear-gradient(135deg,var(--gold),#FFD84D);color:var(--bg-nav);
-    box-shadow:0 12px 32px rgba(242,183,5,.35)}
+    box-shadow:0 12px 32px rgba(242,183,5,.35);font-size:1.05rem}
   .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(242,183,5,.5)}
   .btn-primary:disabled{opacity:.6;cursor:wait;transform:none}
   .btn-ghost{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.15)}
   .btn-ghost:hover{background:rgba(255,255,255,.1)}
-  .btn-random{background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;
-    box-shadow:0 12px 32px rgba(124,58,237,.4);font-size:1.05rem;padding:18px}
-  .btn-random:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(236,72,153,.6)}
+  .btn-secondary{background:rgba(255,255,255,.06);color:#fff;border:1.5px solid rgba(255,255,255,.2);
+    font-size:.92rem;padding:14px}
+  .btn-secondary:hover{background:rgba(255,255,255,.12)}
 
-  /* DAY PICKER */
+  .action-block{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:20px 18px;margin-bottom:16px}
+  .action-block .action-title{font-family:var(--font-display);font-size:1.1rem;font-weight:800;
+    margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  .action-block .action-title .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+  .action-block .action-sub{font-size:.76rem;color:#B8C2D4;line-height:1.5;margin-bottom:14px}
+  .action-divider{display:flex;align-items:center;gap:10px;margin:14px 0;color:#8A94A6;
+    font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+  .action-divider::before,.action-divider::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.12)}
+
   .day-picker{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
   .day-btn{flex:1;min-width:44px;padding:12px 6px;border-radius:10px;border:1.5px solid rgba(255,255,255,.15);
     background:rgba(0,0,0,.3);color:#8A94A6;font-weight:800;font-size:.75rem;cursor:pointer;
@@ -140,7 +141,6 @@
   .day-btn.active{background:var(--gold);color:var(--bg-nav);border-color:var(--gold);
     box-shadow:0 6px 18px rgba(242,183,5,.35)}
 
-  /* ONBOARDING */
   .onboard{position:fixed;inset:0;z-index:2000;background:rgba(6,14,28,.94);
     backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;
     padding:20px;opacity:0;pointer-events:none;transition:opacity .35s}
@@ -165,7 +165,6 @@
   .onboard-step .txt b{color:var(--gold)}
   .onboard-card .btn{margin-top:18px}
 
-  /* MODAL / LOADER */
   .modal-overlay{position:fixed;inset:0;background:rgba(6,14,28,.85);backdrop-filter:blur(8px);
     z-index:1000;display:flex;align-items:center;justify-content:center;padding:14px;
     opacity:0;pointer-events:none;transition:opacity .3s}
@@ -229,22 +228,20 @@
   .tt-id .qr-box small{display:block;font-size:.38rem;letter-spacing:1px;color:#888;
     margin-top:3px;font-weight:800}
 
-  .tt-table{flex:1;padding:12px 22px;display:flex;flex-direction:column;overflow:hidden}
-  .tt-table-head{display:grid;grid-template-columns:1fr 3.2fr .9fr .9fr;gap:6px;
-    font-size:.5rem;letter-spacing:1px;text-transform:uppercase;color:var(--t-primary);
+  .tt-table{flex:1;padding:12px 18px;display:flex;flex-direction:column;overflow:hidden;min-height:0}
+  .tt-table-head{display:grid;grid-template-columns:0.9fr 2.4fr 1.4fr 0.9fr;gap:5px;
+    font-size:.48rem;letter-spacing:.8px;text-transform:uppercase;color:var(--t-primary);
     font-weight:800;padding-bottom:7px;border-bottom:2px solid var(--t-secondary);margin-bottom:6px}
-  .tt-row{display:grid;grid-template-columns:1fr 3.2fr .9fr .9fr;gap:6px;
-    padding:8px 0;border-bottom:1px solid rgba(0,0,0,.06);align-items:center}
+  .tt-row{display:grid;grid-template-columns:0.9fr 2.4fr 1.4fr 0.9fr;gap:5px;
+    padding:7px 0;border-bottom:1px solid rgba(0,0,0,.06);align-items:center}
   .tt-row:nth-child(even){background-color:rgba(0,0,0,.02)}
   .tt-row:last-child{border-bottom:none}
-  .tt-code{font-weight:800;font-size:.68rem;color:var(--t-primary);word-break:break-word}
-  .tt-name{font-weight:700;font-size:.72rem;color:#222;white-space:nowrap;
-    overflow:hidden;text-overflow:ellipsis}
-  .tt-time{font-size:.58rem;font-weight:800;color:var(--t-primary);
-    background:rgba(0,0,0,.05);padding:3px 5px;border-radius:4px;text-align:center;line-height:1.2}
-  .tt-venue{font-size:.58rem;font-weight:800;color:#fff;background:var(--t-primary);
-    padding:3px 5px;border-radius:4px;text-align:center;white-space:nowrap;
-    overflow:hidden;text-overflow:ellipsis}
+  .tt-code{font-weight:800;font-size:.65rem;color:var(--t-primary);word-break:break-word;line-height:1.2}
+  .tt-name{font-weight:700;font-size:.68rem;color:#222;line-height:1.2;word-break:break-word;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .tt-time{font-size:.6rem;font-weight:800;color:var(--t-primary);
+    background:rgba(0,0,0,.05);padding:4px 5px;border-radius:4px;text-align:center;line-height:1.2;word-break:break-word}
+  .tt-venue{font-size:.6rem;font-weight:800;color:#fff;background:var(--t-primary);
+    padding:4px 5px;border-radius:4px;text-align:center;line-height:1.2;word-break:break-word}
 
   .tt-watermark{position:absolute;inset:0;display:flex;flex-direction:column;
     align-items:center;justify-content:center;pointer-events:none;z-index:1;overflow:hidden}
@@ -293,7 +290,7 @@
 
   <div class="hero">
     <h1>The Official UG<br><em>Time Table Generator.</em></h1>
-    <p>Fill your details, add courses with real times or leave time empty, then hit <b>RANDOMIZE</b>. Fresh conflict-free schedule every time. 🎲</p>
+    <p>Type your real timetable (code, name, venue, <b>time</b>) → press <b>Generate</b>. Don't know your times yet? → press <b>Randomize</b> and we'll fit them for you. 🎲</p>
   </div>
 
   <!-- STEP 1: IDENTITY -->
@@ -344,8 +341,8 @@
 
   <!-- STEP 2: COURSE POOL -->
   <div class="card">
-    <h2><span class="dot"></span>2 · Your Course Pool</h2>
-    <p class="hint">Add every course. If you know the real time, type it in the Time field (e.g. "Mon 10:00 AM"). Leave Time empty and the randomizer will assign it for you. 📚</p>
+    <h2><span class="dot"></span>2 · Your Courses</h2>
+    <p class="hint">Enter each course: <b>Code</b>, <b>Name</b>, <b>Venue</b>, and <b>Time</b> (e.g. "Mon 10:00 AM"). Every course you add will appear on your timetable exactly as typed. 📚</p>
 
     <div class="course-pool-head">
       <span>Courses added</span>
@@ -353,13 +350,35 @@
     </div>
 
     <div id="course-list"></div>
-    <button class="add" id="add-course">+ Add Course</button>
+    <button class="add" id="add-course">+ Add Another Course</button>
   </div>
 
-  <!-- STEP 3: RANDOMIZER SETTINGS -->
-  <div class="card">
-    <h2><span class="dot"></span>3 · Randomizer Settings</h2>
-    <p class="hint">These rules only apply to courses with an empty Time field. Courses with a manual time are kept exactly as entered. 🎯</p>
+  <!-- ACTION BLOCK -->
+  <div class="action-block">
+    <div class="action-title"><span class="dot"></span>3 · Generate Your Timetable</div>
+    <div class="action-sub">Two ways to finish. Pick the one that fits you:</div>
+
+    <button class="btn btn-primary" id="generate-btn">
+      ⚡ Generate My Timetable (Use My Times)
+    </button>
+    <div class="action-sub" style="margin-top:8px;margin-bottom:0;font-size:.72rem;text-align:center;color:#8A94A6">
+      Uses the times you typed above. Best if you already know your class schedule.
+    </div>
+
+    <div class="action-divider">OR</div>
+
+    <button class="btn btn-secondary" id="randomize-btn">
+      🎲 Randomize (Fill Empty Times For Me)
+    </button>
+    <div class="action-sub" style="margin-top:8px;margin-bottom:0;font-size:.72rem;text-align:center;color:#8A94A6">
+      Keeps your typed times. Only courses with an <b>empty Time field</b> get randomized into your preferred days & window below.
+    </div>
+  </div>
+
+  <!-- RANDOMIZER SETTINGS -->
+  <div class="card" id="randomizer-settings-card">
+    <h2><span class="dot"></span>4 · Randomizer Settings <span style="font-size:.65rem;color:#8A94A6;font-weight:600;letter-spacing:1px;text-transform:uppercase">(optional)</span></h2>
+    <p class="hint">Only used by the <b>🎲 Randomize</b> button above. These rules fill courses that have an empty Time field. 🎯</p>
 
     <div class="field">
       <label>Which days are you available?</label>
@@ -416,21 +435,6 @@
       </div>
     </div>
   </div>
-
-  <!-- ACTIONS -->
-  <div style="margin-bottom:12px">
-    <button class="btn btn-random" id="randomize-btn">
-      🎲 RANDOMIZE MY TIMETABLE
-    </button>
-  </div>
-  <div>
-    <button class="btn btn-primary" id="generate-btn">
-      ⚡ Generate (Keep My Times)
-    </button>
-  </div>
-  <p style="text-align:center;color:#8A94A6;font-size:.72rem;margin-top:14px;line-height:1.5;padding:0 8px">
-    <b style="color:var(--gold)">Tip:</b> Press <b>RANDOMIZE</b> as many times as you want — every press gives a completely different, conflict-free result. 🎲
-  </p>
 </div>
 
 <button class="guide-fab" id="guide-fab" title="How to use">?</button>
@@ -449,15 +453,15 @@
       </div>
       <div class="onboard-step">
         <div class="num">2</div>
-        <div class="txt"><b>Add your courses</b> — code, name, venue. If you know the time, type it; if not, leave it empty.</div>
+        <div class="txt"><b>Add your courses</b> — type the <b>Code</b>, <b>Name</b>, <b>Venue</b>, and <b>Time</b> for each. If you don't know a time, leave that field empty.</div>
       </div>
       <div class="onboard-step">
         <div class="num">3</div>
-        <div class="txt"><b>Pick your days & time window</b> — the randomizer fits empty-time courses inside.</div>
+        <div class="txt"><b>Choose how to finish:</b> press <b>⚡ Generate</b> to use your typed times, or <b>🎲 Randomize</b> to auto-fill any empty Time fields inside your preferred days & window.</div>
       </div>
       <div class="onboard-step">
         <div class="num">4</div>
-        <div class="txt"><b>Hit RANDOMIZE</b> — press again and again for a fresh result every time. 🎲</div>
+        <div class="txt"><b>Download or re-roll.</b> Save your timetable image, or press Randomize Again for a different layout. 🎲</div>
       </div>
     </div>
 
@@ -474,7 +478,7 @@
 
   <div class="result-container">
     <div class="randomize-hint" id="random-hint">
-      🎲 <span>Fresh result! Press Randomize Again for a new one.</span>
+      🎲 <span>Some times were randomized. Press Randomize Again for a new arrangement.</span>
     </div>
 
     <div class="preview-wrap">
@@ -510,7 +514,7 @@
           <div class="tt-table-head">
             <span>Code</span><span>Course Name</span><span>Time</span><span>Venue</span>
           </div>
-          <div id="p-courses" style="display:flex;flex-direction:column;flex:1;overflow:hidden"></div>
+          <div id="p-courses" style="display:flex;flex-direction:column;flex:1;overflow:hidden;min-height:0"></div>
         </div>
 
         <div class="tt-footer">
@@ -520,7 +524,7 @@
       </div>
     </div>
 
-    <button class="btn btn-random" id="rerandomize-btn" style="margin-bottom:10px">
+    <button class="btn btn-secondary" id="rerandomize-btn" style="margin-bottom:10px">
       🎲 Randomize Again
     </button>
     <button class="btn btn-primary" id="download-btn" style="margin-bottom:10px">
@@ -561,7 +565,8 @@ const $ = id => document.getElementById(id);
 const courseList = $('course-list');
 const modal = $('modal');
 let toastTimer;
-let lastRandomResult = null;
+let lastSchedule = null;
+let lastWasRandom = false;
 
 function toast(msg, ms=2600){
   const t = $('toast');
@@ -619,7 +624,7 @@ document.querySelectorAll('.theme-btn').forEach(btn => {
     } else if (btn.dataset.theme === 'slate'){
       color = 'rgba(148,163,184,0.1)'; subColor = 'rgba(148,163,184,0.12)';
     }
-    wm.style.color = color;
+    if (wm) wm.style.color = color;
     wmSub.forEach(el => el.style.color = subColor);
 
     drawQR();
@@ -628,7 +633,7 @@ document.querySelectorAll('.theme-btn').forEach(btn => {
 });
 
 /* ============================================================
-   COURSE CARDS (with manual Time field under Venue)
+   COURSE CARDS
 ============================================================ */
 function addCourse(code='', name='', venue='', time=''){
   const idx = courseList.children.length + 1;
@@ -639,7 +644,7 @@ function addCourse(code='', name='', venue='', time=''){
     <button class="rm" title="Remove">×</button>
     <div class="row1">
       <div>
-        <div class="mini-label">Code</div>
+        <div class="mini-label">Course Code</div>
         <input class="c-code" placeholder="UGSB 101" maxlength="15" value="${escapeHtml(code)}" />
       </div>
       <div>
@@ -652,9 +657,9 @@ function addCourse(code='', name='', venue='', time=''){
         <div class="mini-label">Venue</div>
         <input class="c-venue" placeholder="e.g. B1" maxlength="12" value="${escapeHtml(venue)}" />
       </div>
-      <div style="grid-column: span 2;" class="time-wrap">
-        <div class="mini-label">Time (leave empty to randomize)</div>
-        <input class="c-time" placeholder="e.g. Mon 10:00 AM" maxlength="22" value="${escapeHtml(time)}" />
+      <div>
+        <div class="mini-label">Time (e.g. Mon 10:00 AM)</div>
+        <input class="c-time" placeholder="e.g. Mon 10:00 AM" maxlength="24" value="${escapeHtml(time)}" />
       </div>
     </div>
   `;
@@ -665,10 +670,11 @@ function addCourse(code='', name='', venue='', time=''){
       setTimeout(()=>{ card.remove(); renumberCourses(); updateCourseCount(); saveState(); }, 180);
     } else {
       card.querySelectorAll('input').forEach(i=>i.value='');
+      updateCourseCount();
       saveState();
     }
   });
-  card.querySelectorAll('input').forEach(i => i.addEventListener('input', saveState));
+  card.querySelectorAll('input').forEach(i => i.addEventListener('input', ()=>{ updateCourseCount(); saveState(); }));
   courseList.appendChild(card);
   updateCourseCount();
 }
@@ -680,8 +686,11 @@ function renumberCourses(){
 }
 function updateCourseCount(){
   const n = [...courseList.querySelectorAll('.course-card')]
-    .filter(c => c.querySelector('.c-code').value.trim() || c.querySelector('.c-name').value.trim())
-    .length;
+    .filter(c => {
+      const code = c.querySelector('.c-code').value.trim();
+      const name = c.querySelector('.c-name').value.trim();
+      return code || name;
+    }).length;
   $('course-count').textContent = n;
 }
 
@@ -702,6 +711,7 @@ $('day-picker').querySelectorAll('.day-btn').forEach(btn => {
 ============================================================ */
 function drawQR(){
   const canvas = $('qr');
+  if (!canvas) return;
   const theme = document.querySelector('.theme-btn.active').dataset.theme;
   const primaryColor = THEMES[theme].primary;
   QRCode.toCanvas(canvas, CONFIG.packUrl, {
@@ -711,7 +721,33 @@ function drawQR(){
 }
 
 /* ============================================================
-   RANDOMIZER ENGINE (respects manual times)
+   COLLECT COURSES FROM FORM
+============================================================ */
+function collectCourses(){
+  return [...courseList.querySelectorAll('.course-card')].map((c, i) => ({
+    index: i,
+    code: c.querySelector('.c-code').value.trim(),
+    name: c.querySelector('.c-name').value.trim(),
+    venue: c.querySelector('.c-venue').value.trim(),
+    manualTime: c.querySelector('.c-time').value.trim(),
+  })).filter(x => x.code || x.name);
+}
+
+/* ============================================================
+   NORMAL GENERATE (uses typed times exactly)
+============================================================ */
+function buildNormalSchedule(courses){
+  return courses.map(c => ({
+    code: c.code || '—',
+    name: c.name || 'Untitled',
+    venue: c.venue || 'TBA',
+    time: c.manualTime || 'TBA',
+    isManual: !!c.manualTime,
+  }));
+}
+
+/* ============================================================
+   RANDOMIZE (only fills courses with empty time)
 ============================================================ */
 function getSelectedDays(){
   return [...document.querySelectorAll('#day-picker .day-btn.active')].map(b => b.dataset.day);
@@ -728,7 +764,7 @@ function extractDay(str){
   return null;
 }
 
-function randomizeSchedule(){
+function buildRandomizedSchedule(courses){
   const days = getSelectedDays();
   if (!days.length){ toast('Pick at least one day 🗓️'); return null; }
 
@@ -737,20 +773,14 @@ function randomizeSchedule(){
   const duration = parseFloat($('inp-duration').value);
   const gap = parseFloat($('inp-gap').value);
 
-  const allCourses = [...courseList.querySelectorAll('.course-card')]
-    .map(c => ({
-      code: c.querySelector('.c-code').value.trim(),
-      name: c.querySelector('.c-name').value.trim(),
-      venue: c.querySelector('.c-venue').value.trim(),
-      manualTime: c.querySelector('.c-time').value.trim(),
-    }))
-    .filter(x => x.code || x.name);
-
-  if (!allCourses.length){ toast('Add at least one course first 📚'); return null; }
+  if (endH <= startH + duration){
+    toast('Time window too small for one class ⏰');
+    return null;
+  }
 
   const fixed = [];
   const flexible = [];
-  allCourses.forEach(c => {
+  courses.forEach(c => {
     if (c.manualTime){
       fixed.push({
         code: c.code || '—',
@@ -758,7 +788,7 @@ function randomizeSchedule(){
         venue: c.venue || 'TBA',
         time: c.manualTime,
         day: extractDay(c.manualTime) || '—',
-        startH: 0,
+        startH: -1,
         isManual: true,
       });
     } else {
@@ -767,16 +797,11 @@ function randomizeSchedule(){
   });
 
   if (!flexible.length){
-    const dayOrder = { Mon:0, Tue:1, Wed:2, Thu:3, Fri:4, Sat:5, '—':6 };
-    return fixed.sort((a,b) => (dayOrder[a.day]??6) - (dayOrder[b.day]??6));
+    toast('All courses already have times — nothing to randomize ✨');
+    return fixed;
   }
 
-  if (endH <= startH + duration){
-    toast('Time window too small for one class ⏰');
-    return null;
-  }
-
-  for (let attempt = 0; attempt < 40; attempt++){
+  for (let attempt = 0; attempt < 60; attempt++){
     const randomPart = tryFit(flexible, days, startH, endH, duration, gap);
     if (randomPart){
       const combined = [...fixed, ...randomPart];
@@ -784,7 +809,8 @@ function randomizeSchedule(){
       combined.sort((a,b) => {
         const da = dayOrder[a.day] ?? 6, db = dayOrder[b.day] ?? 6;
         if (da !== db) return da - db;
-        return (a.startH ?? 0) - (b.startH ?? 0);
+        const sa = a.startH ?? 0, sb = b.startH ?? 0;
+        return sa - sb;
       });
       return combined;
     }
@@ -830,44 +856,59 @@ function tryFit(courses, days, startH, endH, duration, gap){
 }
 
 /* ============================================================
-   GENERATE HANDLERS
+   BUTTON HANDLERS
 ============================================================ */
-$('randomize-btn').addEventListener('click', ()=>{
+function ensureIdentity(){
   if (!$('inp-name').value.trim() || !$('inp-index').value.trim()){
     toast('Please enter your Name and Index Number ✍️');
-    return;
+    return false;
   }
-  const schedule = randomizeSchedule();
+  return true;
+}
+
+// PRIMARY: Generate using typed times
+$('generate-btn').addEventListener('click', ()=>{
+  if (!ensureIdentity()) return;
+  const courses = collectCourses();
+  if (!courses.length){ toast('Add at least one course first 📚'); return; }
+
+  const schedule = buildNormalSchedule(courses);
+  lastSchedule = schedule;
+  lastWasRandom = false;
+
+  openModal('Building your timetable...');
+  setTimeout(()=>{
+    renderSchedule(schedule, false);
+    modal.classList.add('result');
+  }, 1400);
+});
+
+// SECONDARY: Randomize empty-time courses
+$('randomize-btn').addEventListener('click', ()=>{
+  if (!ensureIdentity()) return;
+  const courses = collectCourses();
+  if (!courses.length){ toast('Add at least one course first 📚'); return; }
+
+  const schedule = buildRandomizedSchedule(courses);
   if (!schedule) return;
 
-  lastRandomResult = schedule;
-  openModal('Randomizing your perfect schedule...');
+  lastSchedule = schedule;
+  lastWasRandom = true;
+
+  openModal('Randomizing your schedule...');
   setTimeout(()=>{
     renderSchedule(schedule, true);
     modal.classList.add('result');
   }, 1600);
 });
 
-$('generate-btn').addEventListener('click', ()=>{
-  if (!$('inp-name').value.trim() || !$('inp-index').value.trim()){
-    toast('Please enter your Name and Index Number ✍️');
-    return;
-  }
-  const schedule = randomizeSchedule();
-  if (!schedule) return;
-
-  lastRandomResult = schedule;
-  openModal('Generating your timetable...');
-  setTimeout(()=>{
-    renderSchedule(schedule, false);
-    modal.classList.add('result');
-  }, 1600);
-});
-
+// Re-randomize inside modal
 $('rerandomize-btn').addEventListener('click', ()=>{
-  const schedule = randomizeSchedule();
+  const courses = collectCourses();
+  const schedule = buildRandomizedSchedule(courses);
   if (!schedule) return;
-  lastRandomResult = schedule;
+  lastSchedule = schedule;
+  lastWasRandom = true;
 
   modal.classList.remove('result');
   $('loader-text').textContent = 'Shuffling again...';
@@ -889,7 +930,7 @@ $('close-modal').addEventListener('click', ()=>{
 });
 
 /* ============================================================
-   RENDER
+   RENDER — every course shows its own time, no dedupe
 ============================================================ */
 function renderSchedule(schedule, isRandom){
   const name = $('inp-name').value.trim();
@@ -910,7 +951,8 @@ function renderSchedule(schedule, isRandom){
     return;
   }
 
-  const maxVisible = 10;
+  // Adaptive row cap so it always fits inside the 4:5 image
+  const maxVisible = 9;
   let shown = schedule, overflowMsg = '';
   if (schedule.length > maxVisible){
     shown = schedule.slice(0, maxVisible);
@@ -924,7 +966,7 @@ function renderSchedule(schedule, isRandom){
     return `
       <div class="tt-row">
         <div class="tt-code">${escapeHtml(s.code || '—')}</div>
-        <div class="tt-name" title="${escapeHtml(s.name)}">${dayPrefix}${escapeHtml(s.name)}</div>
+        <div class="tt-name" title="${escapeHtml(s.name)}">${dayPrefix}${escapeHtml(s.name || 'Untitled')}</div>
         <div class="tt-time">${escapeHtml(s.time || 'TBA')}</div>
         <div class="tt-venue">${escapeHtml(s.venue || 'TBA')}</div>
       </div>
@@ -984,13 +1026,16 @@ function saveState(){
         time: c.querySelector('.c-time').value,
       })),
     };
-    localStorage.setItem('ug_tt_v7', JSON.stringify(state));
+    localStorage.setItem('ug_tt_v8', JSON.stringify(state));
   } catch(_){}
 }
 
 function loadState(){
   let s;
-  try { s = JSON.parse(localStorage.getItem('ug_tt_v7') || 'null'); } catch(_){}
+  try { s = JSON.parse(localStorage.getItem('ug_tt_v8') || 'null'); } catch(_){}
+  if (!s){
+    try { s = JSON.parse(localStorage.getItem('ug_tt_v7') || 'null'); } catch(_){}
+  }
   if (!s){ addCourse(); return; }
 
   $('inp-name').value = s.name || '';
@@ -1020,7 +1065,7 @@ function loadState(){
 function showOnboard(){ $('onboard').classList.add('show'); }
 function hideOnboard(){
   $('onboard').classList.remove('show');
-  localStorage.setItem('ug_tt_v7_onboarded', '1');
+  localStorage.setItem('ug_tt_v8_onboarded', '1');
   toast("You're all set! Start with Step 1 ✨", 2200);
 }
 $('onboard-close').addEventListener('click', hideOnboard);
@@ -1038,7 +1083,7 @@ drawQR();
 loadState();
 document.fonts?.ready.then(drawQR);
 
-if (localStorage.getItem('ug_tt_v7_onboarded') !== '1'){
+if (localStorage.getItem('ug_tt_v8_onboarded') !== '1'){
   setTimeout(showOnboard, 600);
 }
 </script>
