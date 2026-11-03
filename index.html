@@ -78,7 +78,7 @@
     transition:.2s;position:relative;background:var(--c);flex-shrink:0}
   .theme-btn.active{transform:scale(1.12);border-color:#fff;box-shadow:0 0 15px rgba(255,255,255,.5)}
 
-  /* ===== NEW COURSE POOL (mobile-friendly stacked cards) ===== */
+  /* COURSE POOL */
   .course-pool-head{font-size:.68rem;letter-spacing:1.2px;text-transform:uppercase;
     color:#8A94A6;font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
   .course-pool-head span.count{color:var(--gold);font-weight:800}
@@ -92,7 +92,7 @@
   .course-card .row2{display:grid;grid-template-columns:1fr;gap:8px}
   @media(min-width:520px){
     .course-card .row1{grid-template-columns:0.9fr 2.2fr}
-    .course-card .row2{grid-template-columns:1.2fr 0.9fr 0.9fr}
+    .course-card .row2{grid-template-columns:1fr 1fr 1.1fr}
   }
   .course-card .mini-label{font-size:.58rem;letter-spacing:1px;text-transform:uppercase;
     color:#8A94A6;font-weight:700;margin-bottom:3px}
@@ -140,7 +140,7 @@
   .day-btn.active{background:var(--gold);color:var(--bg-nav);border-color:var(--gold);
     box-shadow:0 6px 18px rgba(242,183,5,.35)}
 
-  /* ===== ONBOARDING OVERLAY ===== */
+  /* ONBOARDING */
   .onboard{position:fixed;inset:0;z-index:2000;background:rgba(6,14,28,.94);
     backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;
     padding:20px;opacity:0;pointer-events:none;transition:opacity .35s}
@@ -148,7 +148,7 @@
   .onboard-card{width:100%;max-width:380px;background:linear-gradient(180deg,#0A1A2F,#060e1c);
     border:1px solid rgba(242,183,5,.4);border-radius:24px;padding:28px 22px;
     box-shadow:0 30px 80px rgba(0,0,0,.7);text-align:center;transform:scale(.92);
-    transition:transform .4s cubic-bezier(0.175,0.885,0.32,1.275)}
+    transition:transform .4s cubic-bezier(0.175,0.885,0.32,1.275);max-height:92vh;overflow-y:auto}
   .onboard.show .onboard-card{transform:scale(1)}
   .onboard-icon{font-size:3rem;margin-bottom:14px;display:block;animation:bounce 2s infinite}
   @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
@@ -165,7 +165,7 @@
   .onboard-step .txt b{color:var(--gold)}
   .onboard-card .btn{margin-top:18px}
 
-  /* ===== MODAL / LOADER ===== */
+  /* MODAL / LOADER */
   .modal-overlay{position:fixed;inset:0;background:rgba(6,14,28,.85);backdrop-filter:blur(8px);
     z-index:1000;display:flex;align-items:center;justify-content:center;padding:14px;
     opacity:0;pointer-events:none;transition:opacity .3s}
@@ -270,7 +270,6 @@
     transition:.35s cubic-bezier(.2,.9,.3,1.4);z-index:2100;max-width:88vw;text-align:center}
   .toast.show{transform:translate(-50%,0);opacity:1}
 
-  /* FLOATING GUIDE BUTTON */
   .guide-fab{position:fixed;bottom:20px;right:20px;width:54px;height:54px;border-radius:50%;
     background:linear-gradient(135deg,var(--gold),#FFD84D);color:var(--bg-nav);
     border:none;font-size:1.4rem;font-weight:900;cursor:pointer;z-index:900;
@@ -294,10 +293,10 @@
 
   <div class="hero">
     <h1>The Official UG<br><em>Time Table Generator.</em></h1>
-    <p>Fill your details, pick your days, then hit <b>RANDOMIZE</b>. Fresh conflict-free schedule every time. 🎲</p>
+    <p>Fill your details, add courses with real times or leave time empty, then hit <b>RANDOMIZE</b>. Fresh conflict-free schedule every time. 🎲</p>
   </div>
 
-  <!-- ========= STEP 1: IDENTITY ========= -->
+  <!-- STEP 1: IDENTITY -->
   <div class="card">
     <h2><span class="dot"></span>1 · Your Identity</h2>
     <p class="hint">Auto-saves privately in your browser. No account needed.</p>
@@ -343,10 +342,10 @@
     </div>
   </div>
 
-  <!-- ========= STEP 2: COURSE POOL ========= -->
+  <!-- STEP 2: COURSE POOL -->
   <div class="card">
     <h2><span class="dot"></span>2 · Your Course Pool</h2>
-    <p class="hint">Add every course you're taking this semester. Don't worry about times yet — the randomizer will handle that in Step 3. 📚</p>
+    <p class="hint">Add every course. If you know the real time, type it in the Time field (e.g. "Mon 10:00 AM"). Leave Time empty and the randomizer will assign it for you. 📚</p>
 
     <div class="course-pool-head">
       <span>Courses added</span>
@@ -357,10 +356,10 @@
     <button class="add" id="add-course">+ Add Course</button>
   </div>
 
-  <!-- ========= STEP 3: RANDOMIZER SETTINGS ========= -->
+  <!-- STEP 3: RANDOMIZER SETTINGS -->
   <div class="card">
     <h2><span class="dot"></span>3 · Randomizer Settings</h2>
-    <p class="hint">Set your preferences. The engine will shuffle and fit every course inside these rules — no overlaps, ever. 🎯</p>
+    <p class="hint">These rules only apply to courses with an empty Time field. Courses with a manual time are kept exactly as entered. 🎯</p>
 
     <div class="field">
       <label>Which days are you available?</label>
@@ -418,7 +417,7 @@
     </div>
   </div>
 
-  <!-- ========= ACTION BUTTONS ========= -->
+  <!-- ACTIONS -->
   <div style="margin-bottom:12px">
     <button class="btn btn-random" id="randomize-btn">
       🎲 RANDOMIZE MY TIMETABLE
@@ -434,28 +433,27 @@
   </p>
 </div>
 
-<!-- FLOATING GUIDE BUTTON -->
 <button class="guide-fab" id="guide-fab" title="How to use">?</button>
 
-<!-- ========= ONBOARDING OVERLAY ========= -->
+<!-- ONBOARDING -->
 <div class="onboard" id="onboard">
   <div class="onboard-card">
-    <span class="onboard-icon" id="onboard-icon">👋</span>
-    <h3 id="onboard-title">Welcome, Fresher!</h3>
-    <p id="onboard-sub">Here's how to build your timetable in 4 quick steps:</p>
+    <span class="onboard-icon">👋</span>
+    <h3>Welcome, Fresher!</h3>
+    <p>Here's how to build your timetable in 4 quick steps:</p>
 
-    <div id="onboard-steps">
+    <div>
       <div class="onboard-step">
         <div class="num">1</div>
         <div class="txt"><b>Enter your details</b> — name, index number, level, and programme.</div>
       </div>
       <div class="onboard-step">
         <div class="num">2</div>
-        <div class="txt"><b>Add your courses</b> — just the code & name. No times needed.</div>
+        <div class="txt"><b>Add your courses</b> — code, name, venue. If you know the time, type it; if not, leave it empty.</div>
       </div>
       <div class="onboard-step">
         <div class="num">3</div>
-        <div class="txt"><b>Pick your days & time window</b> — the randomizer fits everything inside.</div>
+        <div class="txt"><b>Pick your days & time window</b> — the randomizer fits empty-time courses inside.</div>
       </div>
       <div class="onboard-step">
         <div class="num">4</div>
@@ -467,7 +465,7 @@
   </div>
 </div>
 
-<!-- ========= MODAL ========= -->
+<!-- MODAL -->
 <div class="modal-overlay" id="modal">
   <div class="loader-container">
     <div class="spinner"></div>
@@ -476,7 +474,7 @@
 
   <div class="result-container">
     <div class="randomize-hint" id="random-hint">
-      🎲 <span>Fresh random result! Press Randomize again for a new one.</span>
+      🎲 <span>Fresh result! Press Randomize Again for a new one.</span>
     </div>
 
     <div class="preview-wrap">
@@ -512,8 +510,7 @@
           <div class="tt-table-head">
             <span>Code</span><span>Course Name</span><span>Time</span><span>Venue</span>
           </div>
-          <div id="p-courses" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
-          </div>
+          <div id="p-courses" style="display:flex;flex-direction:column;flex:1;overflow:hidden"></div>
         </div>
 
         <div class="tt-footer">
@@ -565,7 +562,6 @@ const courseList = $('course-list');
 const modal = $('modal');
 let toastTimer;
 let lastRandomResult = null;
-let lastMode = 'normal'; // 'normal' or 'random'
 
 function toast(msg, ms=2600){
   const t = $('toast');
@@ -593,6 +589,10 @@ function shuffle(arr){
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
+}
+function hexToRgb(hex){
+  const h = hex.replace('#','');
+  return { r: parseInt(h.substr(0,2),16), g: parseInt(h.substr(2,2),16), b: parseInt(h.substr(4,2),16) };
 }
 
 /* ============================================================
@@ -626,15 +626,11 @@ document.querySelectorAll('.theme-btn').forEach(btn => {
     saveState();
   });
 });
-function hexToRgb(hex){
-  const h = hex.replace('#','');
-  return { r: parseInt(h.substr(0,2),16), g: parseInt(h.substr(2,2),16), b: parseInt(h.substr(4,2),16) };
-}
 
 /* ============================================================
-   COURSE CARDS (mobile-friendly stacked layout)
+   COURSE CARDS (with manual Time field under Venue)
 ============================================================ */
-function addCourse(code='', name='', venue=''){
+function addCourse(code='', name='', venue='', time=''){
   const idx = courseList.children.length + 1;
   const card = document.createElement('div');
   card.className = 'course-card';
@@ -653,8 +649,12 @@ function addCourse(code='', name='', venue=''){
     </div>
     <div class="row2">
       <div>
-        <div class="mini-label">Venue (optional)</div>
+        <div class="mini-label">Venue</div>
         <input class="c-venue" placeholder="e.g. B1" maxlength="12" value="${escapeHtml(venue)}" />
+      </div>
+      <div style="grid-column: span 2;" class="time-wrap">
+        <div class="mini-label">Time (leave empty to randomize)</div>
+        <input class="c-time" placeholder="e.g. Mon 10:00 AM" maxlength="22" value="${escapeHtml(time)}" />
       </div>
     </div>
   `;
@@ -711,14 +711,21 @@ function drawQR(){
 }
 
 /* ============================================================
-   THE RANDOMIZER ENGINE
-   - Shuffles courses
-   - Assigns to random days within user's selected days
-   - Fits time slots within [start, end] window using duration + gap
-   - Retries if any day overflows
+   RANDOMIZER ENGINE (respects manual times)
 ============================================================ */
 function getSelectedDays(){
   return [...document.querySelectorAll('#day-picker .day-btn.active')].map(b => b.dataset.day);
+}
+
+function extractDay(str){
+  const s = str.toLowerCase();
+  if (/\bmon(day)?\b/.test(s)) return 'Mon';
+  if (/\btue(s(day)?)?\b/.test(s)) return 'Tue';
+  if (/\bwed(nesday)?\b/.test(s)) return 'Wed';
+  if (/\bthu(r(s(day)?)?)?\b/.test(s)) return 'Thu';
+  if (/\bfri(day)?\b/.test(s)) return 'Fri';
+  if (/\bsat(urday)?\b/.test(s)) return 'Sat';
+  return null;
 }
 
 function randomizeSchedule(){
@@ -730,25 +737,57 @@ function randomizeSchedule(){
   const duration = parseFloat($('inp-duration').value);
   const gap = parseFloat($('inp-gap').value);
 
+  const allCourses = [...courseList.querySelectorAll('.course-card')]
+    .map(c => ({
+      code: c.querySelector('.c-code').value.trim(),
+      name: c.querySelector('.c-name').value.trim(),
+      venue: c.querySelector('.c-venue').value.trim(),
+      manualTime: c.querySelector('.c-time').value.trim(),
+    }))
+    .filter(x => x.code || x.name);
+
+  if (!allCourses.length){ toast('Add at least one course first 📚'); return null; }
+
+  const fixed = [];
+  const flexible = [];
+  allCourses.forEach(c => {
+    if (c.manualTime){
+      fixed.push({
+        code: c.code || '—',
+        name: c.name || 'Untitled',
+        venue: c.venue || 'TBA',
+        time: c.manualTime,
+        day: extractDay(c.manualTime) || '—',
+        startH: 0,
+        isManual: true,
+      });
+    } else {
+      flexible.push(c);
+    }
+  });
+
+  if (!flexible.length){
+    const dayOrder = { Mon:0, Tue:1, Wed:2, Thu:3, Fri:4, Sat:5, '—':6 };
+    return fixed.sort((a,b) => (dayOrder[a.day]??6) - (dayOrder[b.day]??6));
+  }
+
   if (endH <= startH + duration){
     toast('Time window too small for one class ⏰');
     return null;
   }
 
-  const courses = [...courseList.querySelectorAll('.course-card')]
-    .map(c => ({
-      code: c.querySelector('.c-code').value.trim(),
-      name: c.querySelector('.c-name').value.trim(),
-      venue: c.querySelector('.c-venue').value.trim(),
-    }))
-    .filter(x => x.code || x.name);
-
-  if (!courses.length){ toast('Add at least one course first 📚'); return null; }
-
-  // Try up to 40 times to find a valid fitting
   for (let attempt = 0; attempt < 40; attempt++){
-    const result = tryFit(courses, days, startH, endH, duration, gap);
-    if (result) return result;
+    const randomPart = tryFit(flexible, days, startH, endH, duration, gap);
+    if (randomPart){
+      const combined = [...fixed, ...randomPart];
+      const dayOrder = { Mon:0, Tue:1, Wed:2, Thu:3, Fri:4, Sat:5, '—':6 };
+      combined.sort((a,b) => {
+        const da = dayOrder[a.day] ?? 6, db = dayOrder[b.day] ?? 6;
+        if (da !== db) return da - db;
+        return (a.startH ?? 0) - (b.startH ?? 0);
+      });
+      return combined;
+    }
   }
   toast('Could not fit all courses. Try wider window or more days.');
   return null;
@@ -757,9 +796,6 @@ function randomizeSchedule(){
 function tryFit(courses, days, startH, endH, duration, gap){
   const shuffled = shuffle(courses);
   const schedule = [];
-
-  // Distribute courses across days (each course randomly assigned)
-  // Then for each day, fill time slots sequentially with random start offset
   const dayBuckets = {};
   days.forEach(d => dayBuckets[d] = []);
 
@@ -768,47 +804,29 @@ function tryFit(courses, days, startH, endH, duration, gap){
     dayBuckets[day].push(c);
   });
 
-  // For each day, try to place all courses within window
   for (const day of days){
     const bucket = dayBuckets[day];
     if (!bucket.length) continue;
-
-    // Random starting offset within first ~30 min
     let cursor = startH + (Math.random() * 0.5);
     for (const course of bucket){
       const classStart = cursor;
       const classEnd = classStart + duration;
-      if (classEnd > endH){
-        return null; // overflow this day → retry whole thing
-      }
+      if (classEnd > endH) return null;
       schedule.push({
         day,
         code: course.code || '—',
         name: course.name || 'Untitled',
         venue: course.venue || 'TBA',
+        time: `${fmtTime(classStart)}–${fmtTime(classEnd)}`,
         startH: classStart,
         endH: classEnd,
+        isManual: false,
       });
-      // Move cursor by duration + random gap
       const actualGap = gap > 0 ? (gap * (0.7 + Math.random() * 0.6)) : 0;
       cursor = classEnd + actualGap;
     }
   }
-
-  // Sort by day order then time
-  const dayOrder = { Mon:0, Tue:1, Wed:2, Thu:3, Fri:4, Sat:5 };
-  schedule.sort((a,b) => dayOrder[a.day] - dayOrder[b.day] || a.startH - b.startH);
-
   return schedule;
-}
-
-function formatScheduleForDisplay(schedule){
-  return schedule.map(s => ({
-    code: s.code,
-    name: `${s.day} · ${s.name}`, // Day prefix in name column
-    time: `${fmtTime(s.startH)}–${fmtTime(s.endH)}`,
-    venue: s.venue,
-  }));
 }
 
 /* ============================================================
@@ -823,7 +841,6 @@ $('randomize-btn').addEventListener('click', ()=>{
   if (!schedule) return;
 
   lastRandomResult = schedule;
-  lastMode = 'random';
   openModal('Randomizing your perfect schedule...');
   setTimeout(()=>{
     renderSchedule(schedule, true);
@@ -836,13 +853,10 @@ $('generate-btn').addEventListener('click', ()=>{
     toast('Please enter your Name and Index Number ✍️');
     return;
   }
-  // In normal mode, we ALSO randomize (since user no longer enters times manually)
-  // but we treat it as a "keep my window" mode. Same engine, different label.
   const schedule = randomizeSchedule();
   if (!schedule) return;
 
   lastRandomResult = schedule;
-  lastMode = 'normal';
   openModal('Generating your timetable...');
   setTimeout(()=>{
     renderSchedule(schedule, false);
@@ -854,9 +868,7 @@ $('rerandomize-btn').addEventListener('click', ()=>{
   const schedule = randomizeSchedule();
   if (!schedule) return;
   lastRandomResult = schedule;
-  lastMode = 'random';
 
-  // spin loader
   modal.classList.remove('result');
   $('loader-text').textContent = 'Shuffling again...';
   setTimeout(()=>{
@@ -890,8 +902,6 @@ function renderSchedule(schedule, isRandom){
   $('p-name').textContent = name;
   $('p-index').textContent = index;
   $('p-sub').textContent = `${level} · ${prog}`;
-
-  // Show/hide random hint
   $('random-hint').style.display = isRandom ? 'flex' : 'none';
 
   const container = $('p-courses');
@@ -900,25 +910,26 @@ function renderSchedule(schedule, isRandom){
     return;
   }
 
-  // Cap visible rows so it fits nicely in 4:5 image
   const maxVisible = 10;
-  let shown = schedule;
-  let overflowMsg = '';
+  let shown = schedule, overflowMsg = '';
   if (schedule.length > maxVisible){
     shown = schedule.slice(0, maxVisible);
     overflowMsg = `<div style="text-align:center;color:#888;padding:6px;font-size:0.6rem;font-style:italic;">+${schedule.length - maxVisible} more courses (see app)</div>`;
   }
 
-  container.innerHTML = shown.map(s => `
-    <div class="tt-row">
-      <div class="tt-code">${escapeHtml(s.code || '—')}</div>
-      <div class="tt-name" title="${escapeHtml(s.name)}">
-        <span style="color:${'var(--t-secondary)'};font-weight:900">${escapeHtml(s.day)}</span> · ${escapeHtml(s.name)}
+  container.innerHTML = shown.map(s => {
+    const dayPrefix = (s.day && s.day !== '—')
+      ? `<span style="color:var(--t-secondary);font-weight:900">${escapeHtml(s.day)}</span> · `
+      : '';
+    return `
+      <div class="tt-row">
+        <div class="tt-code">${escapeHtml(s.code || '—')}</div>
+        <div class="tt-name" title="${escapeHtml(s.name)}">${dayPrefix}${escapeHtml(s.name)}</div>
+        <div class="tt-time">${escapeHtml(s.time || 'TBA')}</div>
+        <div class="tt-venue">${escapeHtml(s.venue || 'TBA')}</div>
       </div>
-      <div class="tt-time">${escapeHtml(s.time)}</div>
-      <div class="tt-venue">${escapeHtml(s.venue || 'TBA')}</div>
-    </div>
-  `).join('') + overflowMsg;
+    `;
+  }).join('') + overflowMsg;
 }
 
 /* ============================================================
@@ -970,16 +981,16 @@ function saveState(){
         code: c.querySelector('.c-code').value,
         name: c.querySelector('.c-name').value,
         venue: c.querySelector('.c-venue').value,
+        time: c.querySelector('.c-time').value,
       })),
-      onboarded: localStorage.getItem('ug_tt_v6_onboarded') === '1',
     };
-    localStorage.setItem('ug_tt_v6', JSON.stringify(state));
+    localStorage.setItem('ug_tt_v7', JSON.stringify(state));
   } catch(_){}
 }
 
 function loadState(){
   let s;
-  try { s = JSON.parse(localStorage.getItem('ug_tt_v6') || 'null'); } catch(_){}
+  try { s = JSON.parse(localStorage.getItem('ug_tt_v7') || 'null'); } catch(_){}
   if (!s){ addCourse(); return; }
 
   $('inp-name').value = s.name || '';
@@ -1000,19 +1011,17 @@ function loadState(){
       b.classList.toggle('active', s.days.includes(b.dataset.day));
     });
   }
-  (s.courses && s.courses.length ? s.courses : [{}]).forEach(c => addCourse(c.code, c.name, c.venue));
+  (s.courses && s.courses.length ? s.courses : [{}]).forEach(c => addCourse(c.code, c.name, c.venue, c.time));
 }
 
 /* ============================================================
    ONBOARDING
 ============================================================ */
-function showOnboard(){
-  $('onboard').classList.add('show');
-}
+function showOnboard(){ $('onboard').classList.add('show'); }
 function hideOnboard(){
   $('onboard').classList.remove('show');
-  localStorage.setItem('ug_tt_v6_onboarded', '1');
-  toast('You\'re all set! Start with Step 1 ✨', 2200);
+  localStorage.setItem('ug_tt_v7_onboarded', '1');
+  toast("You're all set! Start with Step 1 ✨", 2200);
 }
 $('onboard-close').addEventListener('click', hideOnboard);
 $('guide-fab').addEventListener('click', showOnboard);
@@ -1029,8 +1038,7 @@ drawQR();
 loadState();
 document.fonts?.ready.then(drawQR);
 
-// First-time onboarding
-if (localStorage.getItem('ug_tt_v6_onboarded') !== '1'){
+if (localStorage.getItem('ug_tt_v7_onboarded') !== '1'){
   setTimeout(showOnboard, 600);
 }
 </script>
